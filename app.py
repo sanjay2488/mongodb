@@ -90,7 +90,7 @@ def create_student():
     mongo.db.students.insert_one(data)
     return jsonify({'message': 'Student added successfully'}), 201
 
-# ✅ Route to get all students (GET request)
+
 @app.route('/students', methods=['GET'])
 def get_students():
     students = mongo.db.students.find()  # Fetch all students
@@ -109,7 +109,7 @@ def get_students():
     
     return jsonify(student_list), 200
 
-# ✅ Route to get a single student by ID
+
 @app.route('/students/<int:student_id>', methods=['GET'])
 def get_student(student_id):
     student = mongo.db.students.find_one({"id": student_id})
